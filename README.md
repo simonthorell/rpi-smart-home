@@ -54,7 +54,7 @@ Make the scripts executable:
 chmod +x ./scripts
 ```
 
-1. Run the RPi config script:
+#### 1. Run the RPi config script:
 
 ```sh
 ./scripts/conf-rpi.sh
@@ -62,13 +62,13 @@ chmod +x ./scripts
 
 _*** You may get promted to reboot after this executed. If so, say `yes` and reboot. You will need to SSH back into the device as per previous step and continue from here. ***_
 
-2. Run the Zigbee script:
+#### 2. Run the Zigbee script:
 
 ```sh
 ./scripts/conf-zigbee.sh
 ```
 
-3. Run the boot script:
+#### 3. Run the boot script:
 
 ```sh
 ./scripts/conf-boot.sh
