@@ -46,11 +46,45 @@ Enter the password if prompted.
 git clone https://github.com/simonthorell/rpi-smart-home.git && cd rpi-smart-home
 ```
 
-## Run the setup script
+## Run setup scripts
+
+Make the scripts executable:
 
 ```sh
-chmod +x setup.sh && ./setup.sh
+chmod +x ./scripts
 ```
+
+1. Run the RPi config script:
+
+```sh
+./scripts/conf-rpi.sh
+```
+
+_*** You may get promted to reboot after this executed. If so, say `yes` and reboot. You will need to SSH back into the device as per previous step and continue from here. ***_
+
+2. Run the Zigbee script:
+
+```sh
+./scripts/conf-zigbee.sh
+```
+
+3. Run the boot script:
+
+```sh
+./scripts/conf-boot.sh
+```
+
+_*** You may get promted to reboot after this executed. If so, say `yes` and reboot. You will need to SSH back into the device as per previous step and continue from here. ***_
+
+## Get your RPi host IP address
+
+Run the following command and note down the first IP-address in the list.
+
+```sh
+hostname -I
+```
+
+_It should look something like 192.168.XX.XXX_
 
 # Links
 

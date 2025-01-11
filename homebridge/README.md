@@ -4,11 +4,16 @@
 
 #### Get the host IP address
 
-SSH into the RaspberryPi server and run:
+SSH into the RaspberryPi server and run below
+Take note of the first IP-address in the list.
 
 ```sh
 hostname -I
 ```
+
+_It should look something like 192.168.XX.XXX_
+
+_If you are connect via both Ethernet and WiFi, make sure you are using the correct IP address as they will be different._
 
 #### Open Web Interface
 

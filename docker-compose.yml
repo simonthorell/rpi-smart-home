@@ -17,8 +17,6 @@ services:
     container_name: homebridge
     image: homebridge/homebridge:latest
     restart: always
-    # network_mode: host
-    # network_mode: bridge
     ports:
       - 8581:8581
     volumes:
