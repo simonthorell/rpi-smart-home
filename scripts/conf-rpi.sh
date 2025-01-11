@@ -3,23 +3,27 @@
 # Exit immediately if any command fails
 set -e
 
-echo "Updating system packages..."
+# Color codes
+BOLD_GREEN="\033[1;32m"
+RESET="\033[0m"
+
+echo "${BOLD_GREEN}Updating system packages...${RESET}"
 sudo apt-get update
 sudo apt-get upgrade -y
 
-echo "Installing Docker..."
+echo "${BOLD_GREEN}Installing Docker...${RESET}"
 sudo apt-get install -y docker.io
 
-echo "Verifying Docker installation..."
+echo "${BOLD_GREEN}Verifying Docker installation...${RESET}"
 sudo docker --version
 
-echo "Setting up Docker to run without sudo..."
+echo "${BOLD_GREEN}Setting up Docker to run without sudo...${RESET}"
 sudo usermod -aG docker $USER
 
-echo "Installing Docker Compose..."
+echo "${BOLD_GREEN}Installing Docker Compose...${RESET}"
 sudo apt-get install -y docker-compose
 
-echo "Verifying Docker Compose installation..."
+echo "${BOLD_GREEN}Verifying Docker Compose installation...${RESET}"
 docker-compose --version
 
-echo "Docker and Docker Compose have been installed successfully. Please log out and log back in to apply changes to user groups."
+echo "${BOLD_GREEN}Docker and Docker Compose have been installed successfully. Please log out and log back in to apply changes to user groups.${RESET}"

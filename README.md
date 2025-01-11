@@ -32,6 +32,14 @@ ssh smarthome@<IP-ADDRESS>
 
 Enter the password you set in the flash process.
 
+## Update the RPi
+
+```sh
+sudo apt-get update && apt-get upgrade -y
+```
+
+Enter the password if prompted.
+
 ## Clone the `rpi-smart-home` repository
 
 ```sh
