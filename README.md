@@ -2,108 +2,46 @@
 
 RaspberryPi Docker Compose Smart Home Configuration
 
-## Configure ZigBee on RaspberryPi
+## Flash RaspberryOS to RPi
 
-### 1. SSH into your RPi
+1. Download the [Rasberry Pi Imager](https://www.raspberrypi.com/software/)
+2. Select the following:
+
+- Device: _Select the appropriate RPi device you use_.
+- OS: Raspberry Pi OS (64-bit).
+- Storage: Mount an empty SD-card and select it.
+
+3. When prompted to add custom settings, say `yes`and press `Edit Settings`:
+
+- Set your hostname to `smarthome`
+- Set a password of choice
+- Enter your WIFI network SSID and password.
+- Set locale settings as per your preference.
+- Enable SSH with password authentication.
+
+4. When flashing is complete, insert the SD-card in the RPi and boot it up.
+
+## SSH into your RPi
 
 ```sh
-ssh pi@<IP-ADDRESS>
+ssh smarthome@smarthome.local
+
+# If this would not work, you can also try with IP-address
+ssh smarthome@<IP-ADDRESS>
 ```
 
-Replace <IP-ADDRESS> with the IP address of your Raspberry Pi.
+Enter the password you set in the flash process.
 
-Enter the default password (if unchanged): `raspberry`.
-
-### 2. Locate your ZigBee Pheripheral
-
-List connected devices to locate your ZigBee USB stick:
+## Clone the `rpi-smart-home` repository
 
 ```sh
-ls /dev/serial/by-id/
+git clone https://github.com/simonthorell/rpi-smart-home.git && cd rpi-smart-home
 ```
 
-Look for an entry resembling:
+## Run the setup script
 
 ```sh
-usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0018ED3DDF-if00
-```
-
-Open `docker-compose.yml` and update this line with your entry under zigbee2mqtt service:
-
-```sh
-devices:
-      - /dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0018ED3DDF-if00:/dev/ttyACM0
-```
-
-## Run Configuration on boot
-
-### 1. Create a systemd service file
-
-```sh
-sudo nano /etc/systemd/system/homebridge.service
-```
-
-Add the following:
-
-```sh
-[Unit]
-Description=Smart Home Docker Compose Service
-Requires=docker.service
-After=docker.service
-
-[Service]
-WorkingDirectory=/path/to/your/docker-compose-folder
-ExecStart=/usr/bin/docker-compose up -d
-ExecStop=/usr/bin/docker-compose down
-Restart=always
-TimeoutStartSec=0
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Replace `/path/to/your/rpi-smart-home` with the full path to the directory containing your docker-compose.yml.
-
-Save and exit the file (Press Ctrl+O to save and Ctrl+X to exit).
-
-## 2. Reload systemd and enable the service
-
-Reload systemd to recognize the new service file:
-
-```sh
-sudo systemctl daemon-reload
-```
-
-Enable the service to start on boot:
-
-```sh
-sudo systemctl enable smarthome
-```
-
-Start the service immediately:
-
-```sh
-sudo systemctl start smarthome
-```
-
-Verify the Service:
-
-```sh
-sudo systemctl status smarthome
-```
-
-## 3. Reboot and Test
-
-Reboot your Raspberry Pi to ensure the service starts automatically:
-
-```sh
-sudo reboot
-```
-
-After rebooting, verify that all services are running using:
-
-```sh
-docker ps
+chmod +x setup.sh && ./setup.sh
 ```
 
 # Links
