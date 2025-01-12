@@ -6,7 +6,7 @@ frontend:
 permit_join: true
 mqtt:
   base_topic: zigbee2mqtt
-  server: mqtt://mqtt
+  server: mqtt://mosquitto
   serial:
       # port: /dev/ttyACM0
       port: >-
