@@ -102,7 +102,7 @@ If you are using the HomeAssistant Skyconnect Zigbee dongle, make sure to follow
 
 ---
 
-## Open Web Interfaces
+## Access Web Interfaces
 
 Open a web browser connected to the same network as the smarthome RaspberryPi.
 
@@ -118,6 +118,32 @@ If you want to monitor the MQTT messages, install [MQTT Explorer](https://mqtt-e
 - **Encryption**: false (unless you have enabled TLS in mosquitto config file)
 - **Host**: `<RPI-IP-ADDRESS>`
 - **Port**: `1883`
+
+---
+
+## Connect Zigbee IoT devices
+
+### Zigbee2MQTT
+
+1. Open a browser and go to `http://<RPI-IP-ADDRESS>:8080`.
+2. In the menubar, click the button `Permit join (All)`
+3. Reset the state of your IoT device. Check this [link](https://www.zigbee2mqtt.io/guide/usage/pairing_devices.html) for details.
+4. Set a name (also check 'Update Home Assistant entity ID').
+
+### Homebridge
+
+1. Open a browser and go to `http://<RPI-IP-ADDRESS>:8581`.
+2. Set your login credentials if it's your first time logging in.
+3. Go to `Plugins` and install `homebridge-z2m` (Homebridge Zigbee2MQTT).
+4. Go to `Accessories` and make sure your IoT-device is visible.
+
+### Apple Homekit
+
+1. Click the `+` button on the top and select `Add Accessory`
+2. Click `More options...`.
+3. Select the Homebridge and Accessories you want to add and follow the HomeKit instructions.
+
+_The Apple UI is a bit confusing, so if you add the bridge via settings, you will not see your IoT devices in HomeKit_
 
 ---
 
