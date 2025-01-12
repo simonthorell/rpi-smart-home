@@ -14,7 +14,7 @@ services:
   zigbee2mqtt:
     container_name: zigbee2mqtt
     image: koenkk/zigbee2mqtt:latest
-    restart: always
+    restart: unless-stopped
     volumes:
       - ./zigbee2mqtt/data:/app/data
       - /run/udev:/run/udev:ro
@@ -29,7 +29,7 @@ services:
   homebridge:
     container_name: homebridge
     image: homebridge/homebridge:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - 8581:8581
     volumes:
