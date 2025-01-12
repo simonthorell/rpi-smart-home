@@ -30,8 +30,7 @@ services:
     container_name: homebridge
     image: homebridge/homebridge:latest
     restart: unless-stopped
-    ports:
-      - 8581:8581
+    network_mode: host
     volumes:
       - ./homebridge:/homebridge
     logging:
