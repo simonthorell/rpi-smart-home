@@ -1,0 +1,14 @@
+DS_Store
+
+# Zigbee2MQTT
+zigbee2mqtt/data/*
+!zigbee2mqtt/README.md
+!zigbee2mqtt/data/configuration.yaml
+
+# Homebridge
+homebridge/*
+!homebridge/README.md
+
+# Mosquitto MQTT
+mosquitto/*
+!mosquitto/config/mosquitto.conf
