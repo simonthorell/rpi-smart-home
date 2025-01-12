@@ -8,3 +8,7 @@ zigbee2mqtt/data/log/*
 # Homebridge
 homebridge/*
 !homebridge/README.md
+
+# Mosquitto MQTT
+mosquitto/data/*
+mosquitto/log/*
