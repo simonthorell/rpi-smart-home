@@ -110,8 +110,10 @@ If you are using the HomeAssistant Skyconnect Zigbee dongle, make sure to follow
 
 ## Open Web Interfaces
 
-Zigbee2Mqtt: http://<RPI-IP-ADDRESS>:8080
-Homebridge: http://<RPI-IP-ADDRESS>:8581
+Open a web browser connected to the same network as the smarthome RaspberryPi.
+
+**Zigbee2Mqtt**: `http://<RPI-IP-ADDRESS>:8080`  
+**Homebridge**: `http://<RPI-IP-ADDRESS>:8581`
 
 ---
 
