@@ -10,8 +10,8 @@ services:
       - 8080:8080
     environment:
       - TZ=Europe/Stockholm
-    # devices:
-    #   - /dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0018ED3DDF-if00:/dev/ttyACM0
+    devices:
+      - /dev/serial/by-id/usb-Nabu_Casa_Home_Assistant_Connect_ZBT-1_eee059dfa939ef11b57253f454516304-if00:/dev/ttyUSB0
 
   homebridge:
     container_name: homebridge
