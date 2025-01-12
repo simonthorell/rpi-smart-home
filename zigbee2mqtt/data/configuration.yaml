@@ -9,8 +9,6 @@ mqtt:
   server: mqtt://mosquitto
   serial:
       port: /dev/ttyACM0
-      # port: >-
-      #  /dev/serial/by-id/usb-Nabu_Casa_Home_Assistant_Connect_ZBT-1_eee059dfa939ef11b57253f454516304-if00-port0
 advanced:
   network_key:
     - 23

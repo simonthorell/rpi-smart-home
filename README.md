@@ -90,15 +90,7 @@ Run the following command and note down the first IP-address in the list.
 hostname -I
 ```
 
-_It should look something like 192.168.XX.XXX_
-
----
-
-## Update Skyconnect Zigbee dongle
-
-If you are using the HomeAssistant Skyconnect Zigbee dongle, make sure to follow this link and update it:
-
-- https://connectzbt1.home-assistant.io/firmware-update/#from-skyconnect
+_It should look something like 192.168.XX.XXX which is your `<RPI-IP-ADDRESS>`_
 
 ---
 
@@ -108,6 +100,63 @@ Open a web browser connected to the same network as the smarthome RaspberryPi.
 
 **Zigbee2Mqtt**: `http://<RPI-IP-ADDRESS>:8080`  
 **Homebridge**: `http://<RPI-IP-ADDRESS>:8581`
+
+---
+
+## Zigbee Dongle
+
+### Update Skyconnect Zigbee Dongle
+
+If you are using the HomeAssistant Skyconnect Zigbee dongle, connect the dongle to a desktop computer and follow this link and update it with latest firmware:
+
+- https://connectzbt1.home-assistant.io/firmware-update/#from-skyconnect
+
+### Locate ZigBee Dongle
+
+List connected devices to locate your ZigBee USB stick:
+
+```sh
+ls /dev/serial/by-id/
+```
+
+Look for an entry resembling:
+
+```sh
+usb-Nabu_Casa_Home_Assistant_Connect_ZBT-1_eee059dfa939ef11b57253f454516304-if00-port0
+```
+
+Check where the symlink points:
+
+```sh
+ls -l /dev/serial/by-id/usb-Nabu_Casa_Home_Assistant_Connect_ZBT-1_eee059dfa939ef11b57253f454516304-if00-port0
+```
+
+Take a look at the last part that should say: `../../ttyUSB0`.
+
+### [Optional] - Update Zigbee Dongle Port
+
+#### 1. Open `docker-compose.yml` and update `ttyUSB0` with your dongle port under zigbee2mqtt service:
+
+```sh
+devices:
+      - "/dev/ttyUSB0"
+```
+
+#### 2. Update the Zigbee2MQTT configuration:
+
+```sh
+nano zigbee2mqtt/data/configuration.yaml
+```
+
+Replace `ttyACM0` with your dongle port here:
+
+```sh
+mqtt:
+  base_topic: zigbee2mqtt
+  server: mqtt://mosquitto
+  serial:
+      port: /dev/ttyACM0
+```
 
 ---
 

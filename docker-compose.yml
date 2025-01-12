@@ -24,7 +24,6 @@ services:
       - TZ=Europe/Stockholm
     devices:
       - "/dev/ttyUSB0"
-      # - "/dev/serial/by-id/usb-Nabu_Casa_Home_Assistant_Connect_ZBT-1_eee059dfa939ef11b57253f454516304-if00-port0:/dev/ttyUSB0"
 
   homebridge:
     container_name: homebridge
