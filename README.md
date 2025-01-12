@@ -119,9 +119,9 @@ Homebridge: http://<RPI-IP-ADDRESS>:8581
 
 If you want to monitor the MQTT messages, install [MQTT Explorer](https://mqtt-explorer.com/) on a desktop computer on the network, and add the following config:
 
-- Encryption: false (unless you have enabled TLS in mosquitto config file)
-- Host: <RPI-IP-ADDRESS>
-- Port: 1883
+- **Encryption**: false (unless you have enabled TLS in mosquitto config file)
+- **Host**: `<RPI-IP-ADDRESS>`
+- **Port**: `1883`
 
 ---
 
