@@ -72,13 +72,7 @@ chmod +x ./scripts
 
 _*** You may get promted to reboot after this executed. If so, say `yes` and reboot. You will need to SSH back into the device as per previous step and continue from here. ***_
 
-#### 2. Run the Zigbee script:
-
-```sh
-./scripts/conf-zigbee.sh
-```
-
-#### 3. Run the boot script:
+#### 2. Run the boot script:
 
 ```sh
 ./scripts/conf-boot.sh

@@ -11,6 +11,14 @@ echo "${BOLD_GREEN}Updating system packages...${RESET}"
 sudo apt-get update
 sudo apt-get upgrade -y
 
+# Let smarthome get access to zigbee dongle
+echo "${BOLD_GREEN}Giving smarthome user access to dialout...${RESET}"
+sudo usermod -a -G dialout $(whoami)
+
+# Give smarthome user access to rpi-smart-home directory
+echo "${BOLD_GREEN}Giving smarthome user access to rpi-smart-home directory...${RESET}"
+sudo chown -R $(whoami):$(whoami) /home/smarthome/rpi-smart-home
+
 echo "${BOLD_GREEN}Installing Docker...${RESET}"
 sudo apt-get install -y docker.io
 

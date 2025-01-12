@@ -18,9 +18,8 @@ After=docker.service
 
 [Service]
 WorkingDirectory=$WORKING_DIR
-ExecStart=/usr/bin/docker-compose up -d
+ExecStart=/usr/bin/docker-compose up
 ExecStop=/usr/bin/docker-compose down
-Restart=always
 TimeoutStartSec=0
 
 [Install]
