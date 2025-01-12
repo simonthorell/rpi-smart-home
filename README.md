@@ -86,6 +86,12 @@ hostname -I
 
 _It should look something like 192.168.XX.XXX_
 
+## Update Skyconnect Zigbee dongle
+
+If you are using the HomeAssistant Skyconnect Zigbee dongle, make sure to follow this link and update it:
+
+- https://connectzbt1.home-assistant.io/firmware-update/#from-skyconnect
+
 # Links
 
 - [Homebridge Docker](https://github.com/homebridge/homebridge/wiki/Install-Homebridge-on-Docker#install-homebridge)

@@ -1,8 +1,9 @@
 DS_Store
 
 # Zigbee2MQTT
-zigbee2mqtt/*
+zigbee2mqtt/data/log/*
 !zigbee2mqtt/README.md
+!zigbee2mqtt/data/configuration.yaml
 
 # Homebridge
 homebridge/*
