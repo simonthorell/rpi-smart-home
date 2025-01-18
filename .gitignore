@@ -12,3 +12,7 @@ homebridge/*
 # Mosquitto MQTT
 mosquitto/*
 !mosquitto/config/mosquitto.conf
+
+# Home Assistant
+homeassistant/*
+!homeassistant/README.md
